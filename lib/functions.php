@@ -1,7 +1,7 @@
 <?php
     /* functions.php 
     * 
-    *   Site's help functions v8.3.11 
+    *   Useful functions v8.3.11
     * 
     */
 
@@ -119,11 +119,9 @@
         echo "<br />";
     }  
     
-    //Время, прошедшее с запуска ОС в мс
-function microtime_n()
-    {
+
+    function microtime_n(){
         $start_array = explode(" ",microtime());
         $start_time = $start_array[1] + $start_array[0];
         return $start_time;
     }
-?>
