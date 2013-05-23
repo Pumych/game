@@ -10,38 +10,38 @@ $(document).ready(function(){
 //    });
 //
 //    //
-//    var ajaxOutput = $('.ajaxOutput');
-//
-//    // Shows tables
-//    $.ajax({
-//        data: {
-//            action: "showTables",
-//            DBname: 'creatrio'
-//        },
-//        success: function(data, textStatus, jqXHR){
-//            $('.selectTable').html( jqXHR.responseText );   // Shows SELECT with tables
-//            $('select.tables').change(function(){           // On selection table:
-//                var $_this = $(this);
-//
-//                var tableName = $_this.val();
-//                if(tableName == 'selectTable'){             // If not table name - empty HTML
-//                    ajaxOutput.html('');
-//                } else {                                    // If table name selected - show the table
-//                    showTable( tableName );
-//                }
-//
-//            }); // $('select.tables').change
-//
-//
-//        } // success:
-//    }); // $.ajax
-//
-//    // 1. Update cell data
-//    // 2. Create matrix of cells
 
 });
 
-function showTable( tableName ){
+function showTables(){
+
+    // Shows tables
+    $.ajax({
+        data: {
+            action: "showTables",
+            DBname: 'creatrio'
+        },
+        success: function(data, textStatus, jqXHR){
+            $('.selectTable').html( jqXHR.responseText );   // Shows SELECT with tables
+            $('select.tables').change(function(){           // On selection table:
+                var $_this = $(this);
+
+                var tableName = $_this.val();
+                if(tableName == 'selectTable'){             // If not table name - empty HTML
+                    ajaxOutput.html('');
+                } else {                                    // If table name selected - show the table
+                    showFields( tableName );
+                }
+
+            }); // $('select.tables').change
+
+
+        } // success:
+    }); // $.ajax
+}
+
+// Shows fields names from table
+function showFields( tableName ){
     $.ajax({
         data: {
             action: "showFields",
