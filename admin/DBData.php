@@ -3,6 +3,7 @@
 include_once("../lib/ez_sql_core.php");
 include_once("../lib/ez_sql_mysql.php");
 
+// db_user / db_password / db_name / db_host
 $db = new ezSQL_mysql('root','','game','localhost');
 
 if(isset($_POST['action'])){
