@@ -5,6 +5,8 @@
     * 
     */
 
+
+
     // Alerts '$str'
     function alert($str = 'Some alert'){
         echo '<script>';

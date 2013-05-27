@@ -1,16 +1,4 @@
-
 $(document).ready(function(){
-//    // Setup default ajax request
-//    $.ajaxSetup({
-//        url: "DBData.php",
-//        type: "POST",
-//        success: function(data, textStatus, jqXHR){
-//            $('.debugOutput').html(jqXHR.responseText);
-//        }
-//    });
-//
-//    //
-
 
 //    var client = {
 //        inputSel: $('#input'),
@@ -80,5 +68,6 @@ $(document).ready(function(){
 //        server.updateGUI();
 //    });
 });
+
 
 
