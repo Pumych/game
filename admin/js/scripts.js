@@ -1,5 +1,10 @@
 
 $(document).ready(function(){
+
+    document.write(formatTimeOfDay(1369658045503));
+
+
+
 //    // Setup default ajax request
 //    $.ajaxSetup({
 //        url: "DBData.php",

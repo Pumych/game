@@ -1,5 +1,8 @@
-/*
+/**********************************************************************************************************************
+ * @desc Returns formatted time <HH:MM:SS>
  *
+ * @param {Int} millisSinceEpoch - milliseconds to convert
+ * @returns {string}
  */
 function formatTimeOfDay(millisSinceEpoch) {
     var secondsSinceEpoch = (millisSinceEpoch / 1000) | 0;
@@ -12,10 +15,17 @@ function formatTimeOfDay(millisSinceEpoch) {
         + seconds;
 }
 
-/*
- * Returns state for business after delta time calculation
+
+
+
+/**********************************************************************************************************************
+ * @desc Returns state of business after delta time calculation
+ *
+ * @param {Array} comesArr - array of 1s or 0s, 1 - customer visited the building
+ * @param {json} lastData - data for last visit (page reload) loaded from server
+ * @returns {json} - data of current visit (page reload) to be upload to server
  */
-function countDayInput(arr, lastData){
+function countDayInput(comesArr, lastData){
     var data = {
         busy: lastData.busy,   // Hairdresser is busy
         sum: lastData.sum,    // Sum of input
@@ -23,15 +33,15 @@ function countDayInput(arr, lastData){
         cost: lastData.cost,  // Cost for one haircut
         timeForCut: lastData.timeForCut
     }
-//debugger;
+    //debugger;
     var customersPay = 0;
     var customersIn = 0;
     var maxQueue = 0;
 
-    for(i in arr){  // Pass all day minutes
+    for(var i in comesArr){  // Pass all day minutes
 
-        if(arr[i]) {
-//            debugger;
+        if(comesArr[i]) {
+            //debugger;
             data.queue++;
             maxQueue = Math.max(data.queue, maxQueue);
             customersIn++
@@ -57,11 +67,13 @@ function countDayInput(arr, lastData){
     });
 }
 
-/*
+/**********************************************************************************************************************
+ * @desc Returns array of TRUE/FALSE values with X% chance, chances 1%-100%
  *
+ * @param {number} chance -
+ * @param {WTF} length
+ * @returns {Array}
  */
-// Returns array of TRUE/FALSE values with X% chance
-// chance - 1%-100%
 function comeInChances(chance, length){
     var arr = new Array();
     for(i=0; i<length; i++){
@@ -70,12 +82,22 @@ function comeInChances(chance, length){
     return arr;
 }
 
-// Returns random number
+/**********************************************************************************************************************
+ * @desc Returns random number
+ *
+ * @param {Int} from
+ * @param {Int} to
+ * @returns {Int}
+ */
 function randomInterval(from, to){
     return Math.floor(Math.random()*(to-from+1)+from);
 }
 
-
+/**********************************************************************************************************************
+ * @desc
+ *
+ * @returns {}
+ */
 function showTables(){
 
     // Shows tables
@@ -103,7 +125,14 @@ function showTables(){
     }); // $.ajax
 }
 
-// Shows fields names from table
+
+/**********************************************************************************************************************
+ * @desc Shows fields names from table
+ *
+ * @param tableName
+ *
+ * @returns {}
+ */
 function showFields( tableName ){
     $.ajax({
         data: {
@@ -120,7 +149,11 @@ function showFields( tableName ){
     });
 }
 
-// Updates cell record data
+/**********************************************************************************************************************
+ * @desc Updates cell record data
+ *
+ * @param element {string}
+ */
 function updateCellRow( element ){
     var updateCellData = {
         sky_cell: element.find('input.sky_cell').val(),
