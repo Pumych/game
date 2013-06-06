@@ -1,4 +1,34 @@
 /**********************************************************************************************************************
+ * @desc Create user
+ *
+ * @param element {string}
+ */
+function userCreate( element ){
+//    var updateCellData = {
+//        sky_cell: element.find('input.sky_cell').val(),
+//        middle_cell: element.find('input.middle_cell').val(),
+//        ground_cell: element.find('input.ground_cell').val()
+//    };
+//
+//    $.ajax({
+//        data:{
+//            action: "updateCellData",
+//            tableName: 'ct_cells_',
+//            cellID: element.attr('data-row_id'),
+//            dataArr: updateCellData
+//        },
+//        success: function(){
+//            // TOD: Check that returned data is success!
+//            element.css('background', 'green');
+//            element.stop().animate({ backgroundColor: "#fff" }, 'fast');
+//        }
+//    });
+}
+
+
+
+
+/**********************************************************************************************************************
  * @desc Returns formatted time <HH:MM:SS>
  *
  * @param {Int} millisSinceEpoch - milliseconds to convert
@@ -21,8 +51,8 @@ function formatTimeOfDay(millisSinceEpoch) {
 /**********************************************************************************************************************
  * @desc Returns state of business after delta time calculation
  *
- * @param {Array} comesArr - array of 1s or 0s, 1 - customer visited the building
- * @param {json} lastData - data for last visit (page reload) loaded from server
+ * @param {Array} comesArr - array of 1s or 0s, 1 - customer visited the building, 0 - not visited
+ * @param {json} lastData - data from last visit (page reload) loaded from server
  * @returns {json} - data of current visit (page reload) to be upload to server
  */
 function countDayInput(comesArr, lastData){

@@ -1,6 +1,9 @@
 <?php
+/**
+ * DBData.php - used for DB connection and request processing
+ */
 
-include_once("../lib/ez_sql_core.php");
+include_once("../lib/ez_sql_core.php");     // ezSQL libraries include
 include_once("../lib/ez_sql_mysql.php");
 
 // db_user / db_password / db_name / db_host

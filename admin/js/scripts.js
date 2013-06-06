@@ -1,8 +1,5 @@
-
 $(document).ready(function(){
-
-    document.write(formatTimeOfDay(1369658045503));
-
+//    $('#adminNav a[href="#admin-dashboard"]').tab('show');
 
 
 //    // Setup default ajax request
